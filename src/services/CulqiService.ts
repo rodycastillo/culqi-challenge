@@ -11,12 +11,18 @@ export const LoginUser = async (user: UserCulqi): Promise<UserResponse> => {
   return response.data;
 };
 
-export const GetEmployees = async ({
-  limit,
-  page,
-}: EmployeesParams): Promise<EmployeesResponse> => {
+export const GetEmployees = async (
+  { limit, page }: EmployeesParams,
+  token: String
+): Promise<EmployeesResponse> => {
   const response = await axiosInstanceAuth.get(
-    `/empleados?limit=${limit}&page=${page}`
+    `/empleados?limit=${limit}&page=${page}`,
+    {
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    }
   );
   return response.data;
 };

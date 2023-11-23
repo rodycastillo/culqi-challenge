@@ -40,8 +40,12 @@ export default defineComponent({
       limit: 8,
       page: 1,
     });
+
     onMounted( async() => {
-      await store.GetEmployeesAction(params);
+      const token = localStorage.getItem('token');
+      if(token) {
+        await store.GetEmployeesAction(params, token);
+      }
     });  
     const store =
       employeesStore();  

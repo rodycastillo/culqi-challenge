@@ -19,9 +19,9 @@ export const employeesStore = defineStore("employeesStore", {
     charges: (state) => state.employees.map((employee) => employee.cargo),
   },
   actions: {
-    async GetEmployeesAction(params: EmployeesParams) {
+    async GetEmployeesAction(params: EmployeesParams, token: String) {
       try {
-        const { data, total } = await GetEmployees(params);
+        const { data, total } = await GetEmployees(params, token);
         this.employees = data;
         this.totalEmployees = total;
         this.errorMessage = false;

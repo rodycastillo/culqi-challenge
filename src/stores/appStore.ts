@@ -16,7 +16,6 @@ export const appStore = defineStore("appStore", {
     };
   },
   getters: {
-    listEmployees: (state) => state.employees,
     errorMessage: (state) => state.errMessage,
   },
   actions: {

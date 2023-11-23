@@ -26,10 +26,12 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to, _from, next) => {
-  if (to.meta.requiresAuth) {
-    const { token } = appStore();
+  if (to.matched.some((record) => record.meta.requiresAuth)) {
+    // const { token } = appStore();
+    const token = localStorage.getItem("token");
+    // console.log("THERE ARE TOKEN");
     if (!token) {
-      next("/login");
+      next({ name: "Login" });
     } else {
       next();
     }

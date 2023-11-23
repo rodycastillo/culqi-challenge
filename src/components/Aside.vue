@@ -37,8 +37,7 @@
       <button
         @click="logOut"
         class="border-[#000] rounded-[10px] py-4 border-[1px] border-solid text-center min-w-[216px] font-bold font-manrope text-sm cursor-pointer"
-      >
-        Salir
+      >Salir
       </button>
     </div>
   </aside>
@@ -56,11 +55,8 @@ export default defineComponent({
     // const {token} = appStore()
 
     const logOut = () => {
-      
-      // console.log(router);
-      router.push({ path: '/login' })
-      // localStorage.clear();
-      // token.
+      localStorage.clear();
+      router.push({ name: 'Login' })
     };
 
     return { logOut };
