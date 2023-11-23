@@ -1,4 +1,5 @@
 import { RouteRecordRaw, createRouter, createWebHistory } from "vue-router";
+import { appStore } from "../stores/appStore";
 
 const routes: RouteRecordRaw[] = [
   {
@@ -26,7 +27,7 @@ const router = createRouter({
 
 router.beforeEach(async (to, _from, next) => {
   if (to.meta.requiresAuth) {
-    const token = localStorage.getItem("token");
+    const { token } = appStore();
     if (!token) {
       next("/login");
     } else {

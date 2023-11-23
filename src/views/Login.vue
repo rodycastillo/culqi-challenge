@@ -26,7 +26,7 @@
             </label>
           </dt>
           <dd class="w-full">
-            <input type="email" id="emailCQ" v-model.trim="v1$.correo.$model" placeholder="Ingresa el correo electrónico" class="rounded-[10px] py-4 px-5 border-solid border-2 border-[#e9eAEC] w-full font-normal not-italic text-sm placeholder:text-[#A0AEC0] focus:outline-1 focus:outline-[#0CAF60] font-manrope" />
+            <input type="email" name="emailCQ" id="emailCQ" v-model.trim="v1$.correo.$model" placeholder="Ingresa el correo electrónico" class="rounded-[10px] py-4 px-5 border-solid border-2 border-[#e9eAEC] w-full font-normal not-italic text-sm placeholder:text-[#A0AEC0] focus:outline-1 focus:outline-[#0CAF60] font-manrope" />
           </dd>
         </dl>
         <dl class="w-full">
@@ -36,7 +36,7 @@
             </label>
           </dt>
           <dd class=" w-full">
-            <input type="password" id="passwordCQ" v-model.trim="v1$.password.$model" placeholder="Ingresa la contraseña" class="rounded-[10px] p-4 w-full border-solid border-2 border-[#e9eAEC] font-normal not-italic text-sm placeholder:text-[#A0AEC0] font-manrope"/>
+            <input type="password" name="passwordCQ" id="passwordCQ" v-model.trim="v1$.password.$model" placeholder="Ingresa la contraseña" class="rounded-[10px] p-4 w-full border-solid border-2 border-[#e9eAEC] font-normal not-italic text-sm placeholder:text-[#A0AEC0] font-manrope"/>
           </dd>
         </dl>
         <dl class="w-full" v-if="errMessage">
@@ -101,11 +101,11 @@ export default defineComponent({
       password: toRef(user, "password"),
     })
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
       v1$.value.$touch();
       if (v1$.value.$invalid) return;
-      app.LoginUserAction(user);
-      return router.push({ path: '/' })
+      await app.LoginUserAction(user);
+      router.push({ path: '/' })
     };
 
     const { errMessage }  = toRefs(app);

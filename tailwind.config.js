@@ -9,7 +9,15 @@ export default {
     extend: {
       fontFamily: {
         manrope: ["Manrope, sans-serif"]
-      }
+      },
+      backgroundImage: {
+        'search': "url('./src/assets/icons/search.svg')",
+        'down': "url('./src/assets/icons/down.svg')",
+        'sub': "url('./src/assets/icons/sub.svg')",
+      },
+      backgroundPosition: {
+        'rightP': "97% 50%"
+      },
     },
     screens: {
       'sm': '640px',
