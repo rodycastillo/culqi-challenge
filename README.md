@@ -26,3 +26,10 @@ Skeleton:
 Listado de empleados:
 
 ![Paso4](./src/assets/pictures/step4.png)
+
+## TEST e2e:
+
+- Login de Usuario
+- Listado de Empleados (Mock List)
+
+![e2e](./src/assets/pictures/step5.png)
