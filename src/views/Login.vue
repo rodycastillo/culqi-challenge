@@ -1,24 +1,24 @@
 <template>
-  <div class="w-screen h-fit flex items-center">
-    <section class="w-1/2 h-full">
-      <picture class="w-full h-[667px] block">
+  <div class="w-screen h-fit flex items-center lg:flex-col lg:gap-[30px]">
+    <section class="w-1/2 h-full lg:w-full lg:flex lg:max-h-[350px]">
+      <picture class="w-full h-[667px] block lg:h-[350px] lg:w-1/2">
         <img class="w-full h-full object-cover" src="https://s3-alpha-sig.figma.com/img/5ba9/9cca/72304f8f5e6598a1fc3f541d868a3889?Expires=1701648000&Signature=QzlmUS68Vq0YyUNKDWdY-aGtpjoW7Rd0WGcuNevk47~f27XMnIqCqI7HG2JtZc5zO9~C23T9kxxm7QxNZD45914v1tSXW2a3t7CPWbcdiRLjcQVs23C~fYAlmyQX09jify0MeScMl~yPaoYnRUB3AUSVUXPKNtP2t9af3cMsEEJ2CGQxbbs-al0UFqOIzKaAUH8mFM8xvHx-Xj-vLDQMVblS3BCGqC7tLhXuGGZx4oVPa~bt75c0Psd-j2oZ4QiaQsnwSkL1kq6YS8nfJ9OYo3lENsCL7xOqH0bEVlKpbGCmtEgDjvJ6oC87~1tHQCo92o0m-TTVAADfR-6froZ39A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" alt="">
       </picture>
 
-      <hgroup class="border-solid h-fit border-t-[5px] bg-[#111827] border-[#27A376]">
-          <div class="flex flex-col gap-[24px] max-w-[620px] mx-auto py-12">
+      <hgroup class="border-solid h-fit border-t-[5px] lg:border-t-[0px] lg:border-l-[5px] bg-[#111827] border-[#27A376] lg:w-1/2 lg:h-[350px]">
+          <div class="flex flex-col gap-[24px] max-w-[620px] mx-auto py-12 lg:px-8 md:p-4 ">
             <img class="w-[117.75px] h-[36px]" src="../assets/icons/culqi.svg" alt="culqi brand" />
-            <p class="text-white font-bold text-5xl font-manrope tracking-[-.5px] leading-[120%]">Dale más power ⚡ a tus empleados hoy 💪</p>
-            <p class="text-white font-normal font-manrope text-lg leading-[150%]">Te ayudamos a gestionarlos de manera más sencilla</p>
+            <p class="text-white font-bold text-5xl lg:text-2xl md:text-xl sm:text-[19px] font-manrope tracking-[-.5px] leading-[120%]">Dale más power ⚡ a tus empleados hoy 💪</p>
+            <p class="text-white font-normal font-manrope text-lg md:text-xs leading-[150%]">Te ayudamos a gestionarlos de manera más sencilla</p>
           </div>
       </hgroup>
 
     </section>
-    <section class="w-1/2 bg-white h-full flex items-center flex-col justify-center">
+    <section class="w-1/2 bg-white h-full flex items-center flex-col justify-center lg:w-full">
       <hgroup>
         <h1 class="text-[#111827] text-center text-2xl font-bold font-manrope">Inicia sesión</h1>
       </hgroup>
-      <form @submit.prevent="handleSubmit" class="w-[480px] mx-auto">
+      <form @submit.prevent="handleSubmit" class="w-[480px] mx-auto lg:w-[90%]">
         <dl class="w-full">
           <dt class=" w-full mt-6 mb-3">
             <label for="emailCQ" class="text-[#111827] text-sm font-medium font-manrope">

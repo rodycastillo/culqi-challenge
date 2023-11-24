@@ -4,15 +4,11 @@
     <main class="w-full h-screen overflow-y-scroll">
       <HeaderTop :names="user.nombre" />
       <section class="w-full h-fit min-h-[835px] pt-8 pb-7 px-6 bg-[#E9EAEC]">
-        <div class="bg-white rounded-xl min-h-[835px] p-6 flex flex-col gap-6">
-          <!-- Header -->
+        <div class="bg-white  h-fit rounded-xl min-h-fit p-6 flex flex-col gap-6 overflow-hidden">
           <Header />
-          <!-- Finder -->
           <Search :charges="store.charges" />
-          <!-- Result -->
           <EmployeesList :employees="store.employees" />
-          <!-- Pagination -->
-          <Paginatior :limit="8" :total="48" />
+          <Paginatior :page="params.page" :limit="params.limit" :total="store.totalEmployees" />
         </div>
       </section>
     </main>
@@ -29,27 +25,33 @@ import Paginatior from "../components/Paginatior.vue";
 import Header from "../components/Header.vue";
 import AsideDashboard from "../components/Aside.vue";
 import HeaderTop from "../components/HeaderTop.vue";
+import Skeleton from "../components/skeletons/Skeleton.vue";
 import { appStore } from "../stores/appStore";
+import { storeToRefs } from "pinia";
 
 export default defineComponent({
   name: "DashboardPage",
   setup() {
 
     const { user } = appStore();
+    const store =
+      employeesStore();
+    const { isLoaded } = storeToRefs(store);
     const params = reactive<EmployeesParams>({
       limit: 8,
       page: 1,
     });
 
-    onMounted( async() => {
+    onMounted(async () => {
       const token = localStorage.getItem('token');
-      if(token) {
+      if (token) {
+        isLoaded.value = true;
         await store.GetEmployeesAction(params, token);
       }
-    });  
-    const store =
-      employeesStore();  
+    });
+
     return {
+      params,
       store,
       user
     };
@@ -60,7 +62,8 @@ export default defineComponent({
     Paginatior,
     Header,
     AsideDashboard,
-    HeaderTop
+    HeaderTop,
+    Skeleton
   },
 });
 </script>

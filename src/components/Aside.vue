@@ -46,13 +46,11 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { useRouter } from 'vue-router';
-// import { appStore } from '../stores/appStore';
 
 export default defineComponent({
   name: "AsideDashboard",
   setup() {
     const router = useRouter()
-    // const {token} = appStore()
 
     const logOut = () => {
       localStorage.clear();

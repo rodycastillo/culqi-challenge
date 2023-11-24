@@ -1,5 +1,4 @@
 import { RouteRecordRaw, createRouter, createWebHistory } from "vue-router";
-import { appStore } from "../stores/appStore";
 
 const routes: RouteRecordRaw[] = [
   {
@@ -27,9 +26,7 @@ const router = createRouter({
 
 router.beforeEach(async (to, _from, next) => {
   if (to.matched.some((record) => record.meta.requiresAuth)) {
-    // const { token } = appStore();
     const token = localStorage.getItem("token");
-    // console.log("THERE ARE TOKEN");
     if (!token) {
       next({ name: "Login" });
     } else {
